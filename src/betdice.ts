@@ -65,7 +65,7 @@ export class BetDice {
       console.log('下注: ' + order);
       await this.eosapi.transfer(tokenCode, this.account, 'betdiceadmin', order, 'action:bet,seed:' + seed + ',rollUnder:' + this.roll + ',ref:ha3toojugege');
       //暂停30多秒
-      utils.sleep((Math.floor(Math.random() * 10 + 1) + 30) * 1000);
+      await utils.sleep((Math.floor(Math.random() * 10 + 1) + 30) * 1000);
 
       const resultBalance = await this.eosapi.tokenBalance(tokenCode, this.account);
       const newBalance = utils.parseBalance(resultBalance, this.symbol);
